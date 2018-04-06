@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
 
     Server: Receiving messages from a network interface (any kind) and forwarding them to all the connected clients
     Client: A process reading a string on STDIN and forwarding it to the server, and also receiving messages from the same server and writing them to STDOUT.}
-    
+
   spec.homepage      = "TODO: Put your gem's website or public repo URL here."
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
@@ -36,4 +36,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.16"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
+  spec.add_development_dependency "guard-rspec", "~> 4.7"
 end

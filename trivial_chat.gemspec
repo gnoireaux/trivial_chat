@@ -9,8 +9,12 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Guillaume Noireaux"]
   spec.email         = ["gnoireaux@gmail.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because RubyGems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
+  spec.summary       = %q{The goal of this exercise is to create a dead simple "chat" system.}
+  spec.description   = %q{This system must be built in two parts:
+
+    Server: Receiving messages from a network interface (any kind) and forwarding them to all the connected clients
+    Client: A process reading a string on STDIN and forwarding it to the server, and also receiving messages from the same server and writing them to STDOUT.}
+    
   spec.homepage      = "TODO: Put your gem's website or public repo URL here."
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'

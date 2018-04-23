@@ -29,6 +29,7 @@ RSpec.describe TrivialChat do
       a.gets; b.gets; c.gets # welcome message from server
       a.puts 'message'
       within 0.1.seconds do
+        expect(a.gets).to eq "message\n"
         expect(b.gets).to eq "message\n"
         expect(c.gets).to eq "message\n"
       end

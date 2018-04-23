@@ -1,13 +1,12 @@
-require "bundler/setup"
-require "trivial_chat"
+require 'bundler/setup'
+require 'trivial_chat'
 require 'timeout'
 module Sleepy
-
-  def within seconds=1, &block
+  def within(seconds=1, _)
     Timeout.timeout(seconds) do |timeout_length|
       until @result
         @result = yield
-        sleep timeout_length/4
+        sleep timeout_length / 4
       end
       @result
     end
@@ -16,7 +15,7 @@ end
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
-  config.example_status_persistence_file_path = ".rspec_status"
+  config.example_status_persistence_file_path = '.rspec_status'
 
   # Disable RSpec exposing methods globally on `Module` and `main`
   config.disable_monkey_patching!

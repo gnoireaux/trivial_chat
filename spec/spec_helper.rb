@@ -3,22 +3,13 @@ require "trivial_chat"
 require 'timeout'
 module Sleepy
 
-  def initialize
-    @result = nil
-  end
-
   def within seconds=1, &block
-    begin
-      Timeout::timeout(seconds) do |timeout_length|
-        #puts "the timeout period is #{timeout_length}"
-        until @result 
-          @result = yield
-          sleep(0.5)
-        end
-        @result
+    Timeout.timeout(seconds) do |timeout_length|
+      until @result
+        @result = yield
+        sleep(0.5)
       end
-    rescue Timeout::Error
-      @result 
+      @result
     end
   end
 end
@@ -35,7 +26,7 @@ RSpec.configure do |config|
   end
 
   config.include(Sleepy)
-  class Fixnum
+  class Integer
     def seconds; self end
   end
 

@@ -1,3 +1,4 @@
+# A trivial chat server
 class TrivialChatServer
   def initialize(port)
     @port = port

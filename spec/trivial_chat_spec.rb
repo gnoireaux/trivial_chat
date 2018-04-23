@@ -10,6 +10,10 @@ RSpec.describe TrivialChat do
       @cs.run
     end
 
+    after do
+      @cs.stop
+    end
+
     def new_client
       TCPSocket.new 'localhost', @port
     end
@@ -20,8 +24,9 @@ RSpec.describe TrivialChat do
       end
     end
 
-    # it "receives messages from a socket" do
-    # end
+    it "receives messages from a socket" do
+      new_client
+    end
 
     # it "broadcasts messages to all clients" do
     # end

@@ -3,7 +3,15 @@ RSpec.describe TrivialChat do
     expect(TrivialChat::VERSION).not_to be nil
   end
 
-  it "does something useful" do
-    expect(false).to eq(true)
+  it "accepts 3 (multiple!) connections" do    
+  end
+
+  it "receives messages from a socket" do
+  end
+  
+  it "broadcasts messages to all clients" do
+  end
+
+  it "should handle network failure" do
   end
 end

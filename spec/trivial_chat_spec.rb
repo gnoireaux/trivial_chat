@@ -10,11 +10,14 @@ RSpec.describe TrivialChat do
       @cs.run
     end
 
+    def new_client
+      return TCPSocket.new 'localhost', @port
+    end
+
     it "accepts 3 (multiple!) connections" do
-      client1 = TCPSocket.new 'localhost', @port
-      expect(client1).to be_a TCPSocket
-      expect(TCPSocket.new 'localhost', @port).to be_a TCPSocket
-      expect(TCPSocket.new 'localhost', @port).to be_a TCPSocket
+      3.times do 
+        expect(new_client).to be_a TCPSocket
+      end
     end
 
     # it "receives messages from a socket" do

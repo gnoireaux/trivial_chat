@@ -7,7 +7,7 @@ module Sleepy
     Timeout.timeout(seconds) do |timeout_length|
       until @result
         @result = yield
-        sleep(0.5)
+        sleep timeout_length/4
       end
       @result
     end

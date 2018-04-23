@@ -25,7 +25,7 @@ RSpec.describe TrivialChat do
     end
 
     it 'receives messages from a socket' do
-      new_client
+      new_client.write 'message'
     end
 
     # it "broadcasts messages to all clients" do

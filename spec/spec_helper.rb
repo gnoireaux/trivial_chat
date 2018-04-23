@@ -1,7 +1,5 @@
 require "bundler/setup"
 require "trivial_chat"
-require 'socket'
-require_relative '../lib/trivial_chat/trivial_chat_server'
 
 
 RSpec.configure do |config|

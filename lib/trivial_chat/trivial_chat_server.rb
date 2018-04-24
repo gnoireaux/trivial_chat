@@ -13,7 +13,7 @@ class TrivialChatServer
         if ready = IO.select([@server_socket, @clients].flatten!) then
           ready.first.each do |ready_for_reading|
             if ready_for_reading == @server_socket then
-              new_client
+              accept_new_client
             else
               msg = ready_for_reading.gets
               @clients.each do |client|
@@ -26,7 +26,7 @@ class TrivialChatServer
     end
   end
 
-  def new_client
+  def accept_new_client
     nc = @server_socket.accept
     @clients << nc
     nc.puts 'Connected to server' 

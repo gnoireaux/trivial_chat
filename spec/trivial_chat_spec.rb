@@ -3,6 +3,10 @@ RSpec.describe TrivialChat do
     expect(TrivialChat::VERSION).not_to be nil
   end
 
+  it 'has a client' do
+    expect(TrivialChatClient).not_to be nil
+  end
+
   context 'When the server is running' do
     before do
       @port = 4242

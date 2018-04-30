@@ -22,7 +22,8 @@ class TrivialChatServer
       end
     end
   end
-
+  alias start run
+  
   def broadcast_message_from(ready_for_reading)
     msg = ready_for_reading.gets
     @clients.each do |client|

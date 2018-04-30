@@ -7,7 +7,7 @@ RSpec.describe TrivialChat do
     before do
       @port = 4242
       @cs = TrivialChatServer.new(@port)
-      @cs.run
+      @cs.start
     end
 
     after do

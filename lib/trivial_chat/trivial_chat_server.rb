@@ -15,14 +15,18 @@ class TrivialChatServer
             if ready_for_reading == @server_socket then
               accept_new_client
             else
-              msg = ready_for_reading.gets
-              @clients.each do |client|
-                client.puts msg
-              end
+              broadcast_message_from ready_for_reading
             end
           end
         end
       end
+    end
+  end
+
+  def broadcast_message_from(ready_for_reading)
+    msg = ready_for_reading.gets
+    @clients.each do |client|
+      client.puts msg
     end
   end
 

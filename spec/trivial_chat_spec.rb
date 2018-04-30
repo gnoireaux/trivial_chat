@@ -18,18 +18,18 @@ RSpec.describe TrivialChat do
       @cs.stop
     end
 
-    def new_client
+    def new_connected_client
       TCPSocket.new 'localhost', @port
     end
 
     it 'accepts 3 (multiple!) connections' do
       3.times do
-        expect(new_client).to be_a TCPSocket
+        expect(new_connected_client).to be_a TCPSocket
       end
     end
 
     it 'receives messages from a socket and broadcasts them to all clients' do
-      a, b, c  = new_client, new_client, new_client
+      a, b, c  = new_connected_client, new_connected_client, new_connected_client
       a.gets; b.gets; c.gets # welcome message from server
       a.puts 'message'
       within 0.1.seconds do

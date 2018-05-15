@@ -10,7 +10,7 @@ class TrivialChatServer
   def run
     @thread_accept = Thread.new do
       loop do
-        next unless ready = IO.select([@server_socket, @clients].flatten)
+        next unless (ready = IO.select([@server_socket, @clients].flatten))
         ready.first.each do |ready_for_reading|
           if ready_for_reading == @server_socket
             accept_new_client

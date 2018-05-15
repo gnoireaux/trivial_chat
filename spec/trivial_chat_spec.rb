@@ -29,13 +29,14 @@ RSpec.describe TrivialChat do
     end
 
     it 'receives messages from a socket and broadcasts them to all clients' do
+      msg = 'message'
       a, b, c  = new_connected_client, new_connected_client, new_connected_client
       a.gets; b.gets; c.gets # welcome message from server
-      a.puts 'message'
+      a.puts msg
       within 0.1.seconds do
-        expect(a.gets).to eq "message\n"
-        expect(b.gets).to eq "message\n"
-        expect(c.gets).to eq "message\n"
+        expect(a.gets).to eq msg + "\n"
+        expect(b.gets).to eq msg + "\n"
+        expect(c.gets).to eq msg + "\n"
       end
     end
 
